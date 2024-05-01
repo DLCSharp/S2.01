@@ -5,21 +5,16 @@
 
 using namespace std;
 
-class Image {
-
+class Image
+{
 private:
-    string m_intitule;       // intitulé de l'image
-    string m_categorie;   // catégorie de l'image (personne, animal, objet)
+    string m_intitule;  // intitulé de l'image
+    string m_categorie; // catégorie de l'image (personne, animal, objet)
     string m_chemin;
 
 public:
-
     // Méthode pour afficher tous les champs de l'image
-    void afficher() const {
-        cout << "Titre : " << m_intitule << endl;
-        cout << "Catégorie : " << m_categorie << endl;
-        cout << "Chemin : " << m_chemin << endl;
-    }
+    void afficher() const;
 
     // Getters
     string getIntitule() const;
@@ -38,12 +33,14 @@ public:
     // Constructeur par défaut
     Image();
 
+    // Constructeur de copie
+    Image(const Image&);
+
     // Constructeur avec attributs
-    Image(string intitule = "", string categorie = "", string chemin = "");
+    Image(string categorie, string intitule, string chemin);
 
     // Destructeur
     ~Image();
-
 };
 
 #endif // IMAGE_H

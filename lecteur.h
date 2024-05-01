@@ -2,6 +2,7 @@
 #define LECTEUR_H
 
 #include <iostream>
+#include <vector>
 #include "typeDiaporama.h"
 
 using namespace std;
@@ -13,22 +14,26 @@ enum modesLecteur {
 
 class Lecteur {
 private:
-    modesLecteur m_mode = MANUEL;
-    unsigned short int m_ImageCourante = 0;
-    unsigned short int m_DiapoCourant = 0;
-    Diaporama* m_tabDiapo[];
+    modesLecteur m_mode;
+    unsigned int m_imageCourante;
+    unsigned int m_diaporamaCourant;
+    vector<Diaporama*> m_tabDiaporamas;
+    vector<Image*> m_tabImages;
 
 public:
+    // Méthodes temporaires pré-implémentation de la base de données
+    // Permettent de charger respectivement les images et les diaporamas
+    // En mémoire puis de garder un pointeur de ceux-ci dans des tableaux associés
+    void chargerImages(vector<Image*> imagesACharger);
+    void chargerDiaporamas(vector<Diaporama*> diaporamasACharger);
 
-    void suivant();
-    void precedent();
-    void supprimerDiapo();
-    void changerDiapo();
+    void avancer();
+    void reculer();
+    void afficherImageCouranteDansDiaporamaCourant();
 
-    void triImageCroissant();
-    void triImageDecroissant();
-
-    void chargerDiapo();
+    void triCroissantRang (Diaporama& pDiaporama);
+    /* Tri du diaporama pDiaporama par ordre croissant de *rang* des ses images
+       A garder aussi lors de l'implémentation de la BD */
 
     // Getters
     unsigned int getImageCourante() const;
@@ -37,15 +42,20 @@ public:
 
     modesLecteur getMode() const;
 
+    vector<Diaporama*> getTabDiaporamas() const;
+
     // Setters
-    void setImageCourante(unsigned short int imageCourante);
+    void changerImage(unsigned int pNumImage);
 
-    void setDiapoCourant(unsigned short int diapoCourant);
+    void changerDiaporama(unsigned int pNumDiaporama);    // permet de choisir un diaporama, 0 si aucun diaporama souhaité
 
-    modesLecteur setMode(modesLecteur mode);
+    void definirMode(modesLecteur mode);
 
     // Constructeur par défaut
     Lecteur();
+
+    // Constructeur de copie
+    Lecteur(const Lecteur&);
 
     // Destructeur
     ~Lecteur();

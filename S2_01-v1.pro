@@ -4,9 +4,14 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        image.cpp \
+        lecteur.cpp \
+        main.cpp \
+        sousprogrammes.cpp \
+        typediaporama.cpp
 
 HEADERS += \
     image.h \
     lecteur.h \
+    sousprogrammes.h \
     typeDiaporama.h
