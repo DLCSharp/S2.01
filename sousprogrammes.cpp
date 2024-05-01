@@ -179,6 +179,8 @@ void triCroissantRang (Diaporama* pDiaporama)
             }
         }
     }
+
+    pDiaporama->setLocalisationImages(localImages);
 }
 
 

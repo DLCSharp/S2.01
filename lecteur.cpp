@@ -22,7 +22,10 @@ void Lecteur::chargerDiaporamas(vector<Diaporama*> DiaporamasACharger)
 
 void Lecteur::avancer()
 {
-    if ((*this).m_imageCourante == (*this).m_tabImages.size() - 1)
+    Diaporama* _diaporamaCourant = (*this).m_tabDiaporamas[(*this).m_diaporamaCourant];
+    vector<ImageDansDiaporama*> _localisationImages = _diaporamaCourant->getLocalisationImages();
+
+    if ((*this).m_imageCourante == _localisationImages.size() - 1)
     {
         (*this).m_imageCourante = 0;
     }
@@ -33,9 +36,12 @@ void Lecteur::avancer()
 
 void Lecteur::reculer()
 {
+    Diaporama* _diaporamaCourant = (*this).m_tabDiaporamas[(*this).m_diaporamaCourant];
+    vector<ImageDansDiaporama*> _localisationImages = _diaporamaCourant->getLocalisationImages();
+
     if ((*this).m_imageCourante == 0)
     {
-        (*this).m_imageCourante = (*this).m_tabImages.size() - 1;
+        (*this).m_imageCourante = _localisationImages.size() - 1;
     }
     else {
         (*this).m_imageCourante -= 1;
@@ -44,14 +50,14 @@ void Lecteur::reculer()
 
 void Lecteur::afficherImageCouranteDansDiaporamaCourant ()
 {
-    Image* imageCourante = (*this).m_tabImages[(*this).m_imageCourante];
-    Diaporama* diaporamaCourant = (*this).m_tabDiaporamas[(*this).m_diaporamaCourant];
-    vector<ImageDansDiaporama*> localisationImages = diaporamaCourant->getLocalisationImages();
+    Image* _imageCourante = (*this).m_tabImages[(*this).m_imageCourante];
+    Diaporama* _diaporamaCourant = (*this).m_tabDiaporamas[(*this).m_diaporamaCourant];
+    vector<ImageDansDiaporama*> _localisationImages = _diaporamaCourant->getLocalisationImages();
 
     cout << endl << endl;
-    cout << "DIAPORAMA : " << diaporamaCourant->getTitre() << endl << endl;
-    cout << localisationImages[(*this).m_imageCourante]->getRang() << " sur " << localisationImages.size() << " / ";
-    imageCourante->afficher();
+    cout << "DIAPORAMA : " << _diaporamaCourant->getTitre() << endl << endl;
+    cout << _localisationImages[(*this).m_imageCourante]->getRang() << " sur " << _localisationImages.size() << " / ";
+    _imageCourante->afficher();
 }
 
 void Lecteur::changerDiaporama(unsigned int pNumDiaporama)

@@ -57,6 +57,15 @@ vector<ImageDansDiaporama*> Diaporama::getLocalisationImages() const
     return (*this).m_localisationImages;
 }
 
+void Diaporama::setLocalisationImages(vector<ImageDansDiaporama*> localImages)
+{
+
+    for (int i=0; i<localImages.size(); i++)
+    {
+        (*this).m_localisationImages[i] = localImages[i];
+    }
+}
+
 void Diaporama::setTitre(string titre)
 {
     (*this).m_titre = titre;
