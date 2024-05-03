@@ -1,11 +1,17 @@
 #include "image.h"
 
+/*
+ * Classe Image
+ */
+
 void Image::afficher() const
 {
     cout << "Titre : " << (*this).m_intitule << endl;
     cout << "Categorie : " << (*this).m_categorie << endl;
     cout << "Chemin : " << (*this).m_chemin << endl;
 }
+
+// Getters
 
 string Image::getIntitule() const
 {
@@ -22,6 +28,8 @@ string Image::getChemin() const
     return (*this).m_chemin;
 }
 
+// Setters
+
 void Image::setIntitule(string intitule)
 {
     (*this).m_intitule = intitule;
@@ -36,6 +44,8 @@ void Image::setChemin(string chemin)
 {
     (*this).m_chemin = chemin;
 }
+
+// Constructeurs
 
 Image::Image() :
     m_intitule(),
@@ -54,6 +64,8 @@ Image::Image(string categorie, string intitule, string chemin) :
     m_categorie(categorie),
     m_chemin(chemin)
 { }
+
+// Destructeur
 
 Image::~Image()
 { }

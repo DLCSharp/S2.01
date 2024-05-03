@@ -1,6 +1,10 @@
 #include "typediaporama.h"
 
-// Classe ImageDansDiaporama
+/*
+ * Classe ImageDansDiaporama
+ */
+
+// Getters
 
 unsigned int ImageDansDiaporama::getPos() const
 {
@@ -12,6 +16,8 @@ unsigned int ImageDansDiaporama::getRang() const
     return (*this).m_rang;
 }
 
+// Setters
+
 void ImageDansDiaporama::setPos(unsigned int pos)
 {
     (*this).m_pos = pos;
@@ -21,6 +27,8 @@ void ImageDansDiaporama::setRang(unsigned int rang)
 {
     (*this).m_rang = rang;
 }
+
+// Constructeurs
 
 ImageDansDiaporama::ImageDansDiaporama() :
     m_pos(),
@@ -37,10 +45,17 @@ ImageDansDiaporama::ImageDansDiaporama(unsigned int pos, unsigned int rang) :
     m_rang(rang)
 { }
 
+// Destructeur
+
 ImageDansDiaporama::~ImageDansDiaporama()
 { }
 
-// Classe Diaporama
+
+/*
+ * Classe Diaporama
+ */
+
+// Getters
 
 string Diaporama::getTitre() const
 {
@@ -57,10 +72,11 @@ vector<ImageDansDiaporama*> Diaporama::getLocalisationImages() const
     return (*this).m_localisationImages;
 }
 
+// Setters
+
 void Diaporama::setLocalisationImages(vector<ImageDansDiaporama*> localImages)
 {
-
-    for (int i=0; i<localImages.size(); i++)
+    for (int i=0; i<static_cast<int>(localImages.size()); i++)
     {
         (*this).m_localisationImages[i] = localImages[i];
     }
@@ -75,6 +91,8 @@ void Diaporama::setVitesse(unsigned int vitesse)
 {
     (*this).m_vitesseDefilement = vitesse;
 }
+
+// Constructeurs
 
 Diaporama::Diaporama() :
     m_titre(),
@@ -93,6 +111,8 @@ Diaporama::Diaporama(string titre, unsigned int vitesseDefilement, vector<ImageD
     m_vitesseDefilement(vitesseDefilement),
     m_localisationImages(localImage)
 { }
+
+// Destructeur
 
 Diaporama::~Diaporama()
 {

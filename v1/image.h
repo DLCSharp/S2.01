@@ -5,29 +5,31 @@
 
 using namespace std;
 
+/*
+ * Classe Image
+ */
+
 class Image
 {
 private:
     string m_intitule;  // intitulé de l'image
     string m_categorie; // catégorie de l'image (personne, animal, objet)
-    string m_chemin;
+    string m_chemin; // chemin d'accès de l'image
 
 public:
     // Méthode pour afficher tous les champs de l'image
     void afficher() const;
 
     // Getters
+
     string getIntitule() const;
-
     string getCategorie() const;
-
     string getChemin() const;
 
     // Setters
+
     void setIntitule(string intitule);
-
     void setCategorie(string categorie);
-
     void setChemin(string chemin);
 
     // Constructeur par défaut

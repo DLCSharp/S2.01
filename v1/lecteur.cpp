@@ -1,5 +1,11 @@
 #include "lecteur.h"
 
+/*
+ * Classe Lecteur
+ */
+
+// Sous-programmes
+
 void Lecteur::chargerImages(vector<Image*> imagesACharger)
 {
     int tailleImages = imagesACharger.size();
@@ -50,9 +56,11 @@ void Lecteur::reculer()
 
 void Lecteur::afficherImageCouranteDansDiaporamaCourant ()
 {
-    Image* _imageCourante = (*this).m_tabImages[(*this).m_imageCourante];
     Diaporama* _diaporamaCourant = (*this).m_tabDiaporamas[(*this).m_diaporamaCourant];
     vector<ImageDansDiaporama*> _localisationImages = _diaporamaCourant->getLocalisationImages();
+
+    ImageDansDiaporama* imageDansDiapoCourant = _localisationImages[(*this).m_imageCourante];
+    Image* _imageCourante = (*this).m_tabImages[imageDansDiapoCourant->getPos()];
 
     cout << endl << endl;
     cout << "DIAPORAMA : " << _diaporamaCourant->getTitre() << endl << endl;
@@ -65,6 +73,8 @@ void Lecteur::changerDiaporama(unsigned int pNumDiaporama)
     (*this).m_diaporamaCourant = pNumDiaporama;
     (*this).m_imageCourante = 0;
 }
+
+// Getters
 
 unsigned int Lecteur::getImageCourante() const
 {
@@ -86,6 +96,8 @@ modesLecteur Lecteur::getMode() const
     return (*this).m_mode;
 }
 
+// Setters
+
 void Lecteur::changerImage(unsigned int pNumImage)
 {
     (*this).m_imageCourante = pNumImage;
@@ -95,6 +107,8 @@ void Lecteur::definirMode(modesLecteur mode)
 {
     (*this).m_mode = mode;
 }
+
+// Constructeurs
 
 Lecteur::Lecteur() :
     m_mode(MANUEL),
@@ -111,6 +125,8 @@ Lecteur::Lecteur(const Lecteur& original) :
     m_tabDiaporamas(original.m_tabDiaporamas),
     m_tabImages(original.m_tabImages)
 { }
+
+// Destructeur
 
 Lecteur::~Lecteur()
 {

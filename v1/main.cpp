@@ -15,6 +15,7 @@ int main()
      * Dans un second temps, ces contenus proviendront d'une base de données
      --------------------------------------------------------------------------------------*/
 
+    // Initialisation d'une instance de Lecteur
     Lecteur* lecteurDiaporama = new Lecteur();
 
     // Chargement des urls des images, chargement des diaporamas
