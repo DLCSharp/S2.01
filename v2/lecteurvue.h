@@ -39,8 +39,7 @@ private slots:
 */
 
     // Onglet "fichier"
-    void fichierOuvrirDiapo_declenche();
-    void fichierChangerDiapo_declenche();
+    void fichierChargerDiapo_declenche();
     void fichierEnleverDiapo_declenche();
     void fichierQuitter_declenche();
 

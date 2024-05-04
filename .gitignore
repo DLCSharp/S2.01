@@ -1,0 +1,3 @@
+# Ignorer les .pro.user et .pro.user.* générés par Qt
+*.pro.user
+*.pro.user.*

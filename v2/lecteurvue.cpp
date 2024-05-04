@@ -9,21 +9,25 @@ lecteurvue::lecteurvue(QWidget *parent)
 {
     ui->setupUi(this);
 
-    labelMode = new QLabel();
-    labelMode->setVisible(false);
-    labelVitesse = new QLabel();
-    labelVitesse->setVisible(false);
+    // Création des labels affichant le mode du lecteur et la vitesse de défilement du diaporama courant
+    labelMode = new QLabel("Mode : <mode du lecteur> ");
+    labelVitesse = new QLabel("Vitesse : <vitesse défilement diapo courant>");
 
+    // Ajout des labels à la barre d'état
     ui->statusbar->addWidget(labelMode);
     ui->statusbar->addPermanentWidget(labelVitesse);
+
+    // Définition de la propriété d'alignement horizontal des éléments sur "centre" dans le layout de groupBoxImages
+    QLayout* layoutGroupBoxImages = ui->groupBoxImages->layout();
+    layoutGroupBoxImages->setAlignment(Qt::AlignCenter);
+    ui->groupBoxImages->setLayout(layoutGroupBoxImages);
 
 /*
  * Connexion des actions de la barre de menu
  */
 
     // Onglet "fichier"
-    connect(ui->actionFichierOuvrirDiapo, SIGNAL(triggered()), this, SLOT(fichierOuvrirDiapo_declenche()));
-    connect(ui->actionFichierChangerDiapo, SIGNAL(triggered()), this, SLOT(fichierChangerDiapo_declenche()));
+    connect(ui->actionFichierChargerDiapo, SIGNAL(triggered()), this, SLOT(fichierChargerDiapo_declenche()));
     connect(ui->actionFichierEnleverDiapo, SIGNAL(triggered()), this, SLOT(fichierEnleverDiapo_declenche()));
     connect(ui->actionFichierQuitter, SIGNAL(triggered()), this, SLOT(fichierQuitter_declenche()));
 
@@ -52,23 +56,25 @@ lecteurvue::lecteurvue(QWidget *parent)
 
 void lecteurvue::btnReculer_clic()
 {
-    qDebug() << "bouton reculer d'image clique";
+    qDebug() << "Bouton reculer d'image clique";
+    ui->btnArreter->setDisabled(true);
 }
 
 void lecteurvue::btnAvancer_clic()
 {
-    qDebug() << "bouton avancer d'image clique";
+    qDebug() << "Bouton avancer d'image clique";
+    ui->btnArreter->setDisabled(true);
 }
 
 void lecteurvue::btnLancer_clic()
 {
-    qDebug() << "bouton lancer le diaporama clique";
+    qDebug() << "Bouton lancer le diaporama clique";
     ui->btnArreter->setDisabled(false);
 }
 
 void lecteurvue::btnArreter_clic()
 {
-    qDebug() << "bouton arreter le diaporama clique";
+    qDebug() << "Bouton arreter le diaporama clique";
     ui->btnArreter->setDisabled(true);
 }
 
@@ -78,14 +84,9 @@ void lecteurvue::btnArreter_clic()
 
 // Onglet "fichier"
 
-void lecteurvue::fichierOuvrirDiapo_declenche()
+void lecteurvue::fichierChargerDiapo_declenche()
 {
-    qDebug() << "Action ouvrir un diaporama declenche";
-}
-
-void lecteurvue::fichierChangerDiapo_declenche()
-{
-    qDebug() << "Action changer de diaporama declenche";
+    qDebug() << "Action charger un diaporama declenche";
 }
 
 void lecteurvue::fichierEnleverDiapo_declenche()
