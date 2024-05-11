@@ -1,3 +1,5 @@
-# Ignorer les .pro.user et .pro.user.* générés par Qt
+# Ignorer les fichires générés par Qt n'étant pas du code source
 *.pro.user
 *.pro.user.*
+*build-*
+**/build/
