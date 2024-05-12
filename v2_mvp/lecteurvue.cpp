@@ -105,16 +105,63 @@ void LecteurVue::majInterface(Lecteur::modesLecteur m)
 {
     switch (m) {
 
-    case Lecteur::MANUEL :
+    case Lecteur::VIDE:
+        majInterface_lecteurVide();
+        break;
 
+    case Lecteur::MANUEL :
+        majInterface_lecteurManuel();
         break;
 
     case Lecteur::AUTOMATIQUE :
-
+        majInterface_lecteurAutomatique();
         break;
 
     default: break;
     }
+}
+
+void LecteurVue::majInterface_lecteurVide()
+{
+    ui->btnReculer->setEnabled(false);
+    ui->btnAvancer->setEnabled(false);
+    ui->btnLancer->setEnabled(false);
+    ui->btnArreter->setEnabled(false);
+
+    labelMode->setText("Lecteur vide");
+
+    labelVitesse->setVisible(false);
+}
+
+void LecteurVue::majInterface_lecteurManuel()
+{
+    ui->btnReculer->setEnabled(true);
+    ui->btnAvancer->setEnabled(true);
+    ui->btnLancer->setEnabled(true);
+    ui->btnArreter->setEnabled(false);
+
+    labelMode->setText("Mode : MANUEL");
+
+    labelVitesse->setVisible(false);
+}
+
+void LecteurVue::majInterface_lecteurAutomatique()
+{
+    ui->btnReculer->setEnabled(true);
+    ui->btnAvancer->setEnabled(true);
+    ui->btnLancer->setEnabled(true);
+    ui->btnArreter->setEnabled(true);
+
+    labelMode->setText("Mode : AUTOMATIQUE");
+
+    labelVitesse->setVisible(true);
+}
+
+void LecteurVue::majInterface_texteLabels(const QMap<QString, QString> &mapTexteLabels)
+{
+    ui->labelDiapoCourant->setText("Diaporama courant : " + mapTexteLabels.value("intituleDiapoCourant"));
+    ui->groupBoxImages->setTitle("Image " + mapTexteLabels.value("numImageCourante") + " sur " + mapTexteLabels.value("nbImages"));
+    ui->labelImage->setText("Intitule : " + mapTexteLabels.value("titreImageCourante") + "\n Categorie :" + mapTexteLabels.value("categorieImage"));
 }
 
 /*

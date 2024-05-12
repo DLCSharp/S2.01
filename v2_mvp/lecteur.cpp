@@ -65,43 +65,6 @@ unsigned int Lecteur::nbImages() const
     return diaporama->nbImages();
 }
 
-void Lecteur::afficher()
-{
-    /* affichen selon le cas :
-     * - lecteur vide
-     * ou bien
-     * - le numéro de diaporama affiché
-     * - et l'image courante ou bien 'diaporama vide' */
-
-    string info;
-    if (lecteurVide())
-    {
-        info = "Lecteur vide = pas de diaporama charge ";
-        cout << info << endl;
-    }
-
-    else
-    {
-        info = "Diaporama num. " + std::to_string(getIdDiaporama()) + " - "  + getDiaporama()->getTitre() + "\n";
-
-        // Afficher l'image courante du diaporama chargé
-        if (nbImages() == 0)
-        {
-            info.append("Diaporama vide \n");
-            cout << info;
-        }
-        else
-        {
-            info.append(std::to_string(diaporama->getImages()[posImageCourante]->getRangDansDiaporama()));
-            info.append(" sur ");
-            info.append((std::to_string(diaporama->getImages().size())));
-            info.append(" / ");
-            cout << info;
-            diaporama->getImages()[posImageCourante]->afficher();
-        }
-    }
-}
-
 void Lecteur::setMode(modesLecteur pMode)
 {
     mode = pMode;

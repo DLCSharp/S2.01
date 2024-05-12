@@ -28,6 +28,10 @@ public:
     // ordre de la Présentation de MAJ de l’interface en fonction
     // de l’état du modèle
     void majInterface (Lecteur::modesLecteur m);
+    void majInterface_lecteurVide();
+    void majInterface_lecteurManuel();
+    void majInterface_lecteurAutomatique();
+    void majInterface_texteLabels(const QMap<QString, QString> &mapTexteLabels);
 
 private:
     Ui::lecteurvue *ui;

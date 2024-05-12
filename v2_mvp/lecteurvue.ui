@@ -129,38 +129,6 @@ QStatusBar::item { border: 0px solid black }; </string>
        <string>Actions</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="9" column="1">
-        <widget class="QPushButton" name="btnLancer">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lance le défilement automatique du diaporama.&lt;/p&gt;&lt;p&gt;Affiche la première image du diaporama si le lecteur est déjà en mode automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>Lancer le diaporama</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QPushButton" name="btnAvancer">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche l'image suivante du diaporama courant. &lt;/p&gt;&lt;p&gt;Passe le lecteur en mode manuel s'il est actuellement en mode automatique&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>Avancer</string>
-         </property>
-        </widget>
-       </item>
        <item row="9" column="2">
         <widget class="QPushButton" name="btnArreter">
          <property name="enabled">
@@ -196,31 +164,6 @@ QStatusBar::item { border: 0px solid black }; </string>
          </property>
         </spacer>
        </item>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="btnReculer">
-         <property name="maximumSize">
-          <size>
-           <width>9999999</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche l'image précédente du diaporama courant. &lt;/p&gt;&lt;p&gt;Passe le lecteur en mode manuel s'il est actuellement en mode automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="toolTipDuration">
-          <number>1000</number>
-         </property>
-         <property name="text">
-          <string>Reculer</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>16</width>
-           <height>16</height>
-          </size>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="3">
         <spacer name="horizontalSpacer">
          <property name="orientation">
@@ -252,6 +195,63 @@ QStatusBar::item { border: 0px solid black }; </string>
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="9" column="1">
+        <widget class="QPushButton" name="btnLancer">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lance le défilement automatique du diaporama.&lt;/p&gt;&lt;p&gt;Affiche la première image du diaporama si le lecteur est déjà en mode automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Lancer le diaporama</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="btnReculer">
+         <property name="maximumSize">
+          <size>
+           <width>9999999</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche l'image précédente du diaporama courant. &lt;/p&gt;&lt;p&gt;Passe le lecteur en mode manuel s'il est actuellement en mode automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="toolTipDuration">
+          <number>1000</number>
+         </property>
+         <property name="text">
+          <string>Reculer</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="btnAvancer">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche l'image suivante du diaporama courant. &lt;/p&gt;&lt;p&gt;Passe le lecteur en mode manuel s'il est actuellement en mode automatique&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Avancer</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

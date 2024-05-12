@@ -14,8 +14,8 @@ public:
     explicit Presentation(Lecteur* m, QObject *parent = nullptr);
 
 public:
-    Lecteur* getModele();
-    LecteurVue* getVue();
+    Lecteur* getModele() const;
+    LecteurVue* getVue() const;
     void setModele(Lecteur* m);
     void setVue(LecteurVue* v);
 
@@ -48,6 +48,8 @@ private:
     Lecteur* _leModele;
     LecteurVue* _laVue;
 
+    QMap<QString, QString> mapTexteLabelsVue;
+    void realiserMajTexteLabelsVue();
 };
 
 #endif // PRESENTATION_H

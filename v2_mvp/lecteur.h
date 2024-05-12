@@ -19,6 +19,7 @@ public:
 
     enum modesLecteur
     {
+        VIDE,
         MANUEL,
         AUTOMATIQUE
     };
@@ -30,8 +31,6 @@ public:
     bool lecteurVide() const;                         // = vrai si aucun diaporama ssocié au lecteur, faux Sinon
     ImageDansDiaporama* getImageCourante() const;     // retourne le pointeur vers l'image courante
     unsigned int nbImages() const;                    // taille de la collection pointée par diaporama
-
-    void afficher();            // affiche les informations sur lecteur + éventuellement diaporama et image courante
 
     void setMode(modesLecteur pMode);
     void setIdDiaporama(unsigned int pIdDiaporama);
