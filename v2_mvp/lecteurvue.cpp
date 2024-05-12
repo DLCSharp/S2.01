@@ -53,52 +53,52 @@ LecteurVue::LecteurVue(QWidget *parent)
 
 void LecteurVue::nvlleConnexion(QObject *c)
 {
-    // Pour se connecter avec la présentation
-    QObject::connect(this, SIGNAL(demandeReculer()),
-                     c, SLOT(demandeReculer()));
+    // Pour connecter les signaux de demande de la vue des slots de demande de la présentation
+    QObject::connect(this, SIGNAL(signalDemandeReculer()),
+                     c, SLOT(slotDemandeReculer()));
 
-    QObject::connect(this, SIGNAL(demandeAvancer()),
-                     c, SLOT(demandeAvancer()));
+    QObject::connect(this, SIGNAL(signalDemandeAvancer()),
+                     c, SLOT(slotDemandeAvancer()));
 
-    QObject::connect(this, SIGNAL(demandeLancer()),
-                     c, SLOT(demandeLancer()));
+    QObject::connect(this, SIGNAL(signalDemandeLancer()),
+                     c, SLOT(slotDemandeLancer()));
 
-    QObject::connect(this, SIGNAL(demandeArreter()),
-                     c, SLOT(demandeArreter()));
+    QObject::connect(this, SIGNAL(signalDemandeArreter()),
+                     c, SLOT(slotDemandeArreter()));
 
-    QObject::connect(this, SIGNAL(demandeChargerDiapo()),
-                     c, SLOT(demandeChargerDiapo()));
+    QObject::connect(this, SIGNAL(signalDemandeChargerDiapo()),
+                     c, SLOT(slotDemandeChargerDiapo()));
 
-    QObject::connect(this, SIGNAL(demandeEnleverDiapo()),
-                     c, SLOT(demandeEnleverDiapo()));
+    QObject::connect(this, SIGNAL(signalDemandeEnleverDiapo()),
+                     c, SLOT(slotDemandeEnleverDiapo()));
 
-    QObject::connect(this, SIGNAL(demandeDefVitesse(unsigned int)),
-                     c, SLOT(demandeDefVitesse(unsigned int)));
+    QObject::connect(this, SIGNAL(signalDemandeDefVitesse(unsigned int)),
+                     c, SLOT(slotDemandeDefVitesse(unsigned int)));
 }
 
 void LecteurVue::supprConnexion(QObject *c)
 {
-    // Pour se déconnecter de la présentation
-    QObject::disconnect(this, SIGNAL(demandeReculer()),
-                        c, SLOT(demandeReculer()));
+    // Pour déconnecter les signaux de demande de la vue des slots de demande de la présentation
+    QObject::disconnect(this, SIGNAL(signalDemandeReculer()),
+                        c, SLOT(slotDemandeReculer()));
 
-    QObject::disconnect(this, SIGNAL(demandeAvancer()),
-                        c, SLOT(demandeAvancer()));
+    QObject::disconnect(this, SIGNAL(signalDemandeAvancer()),
+                        c, SLOT(slotDemandeAvancer()));
 
-    QObject::disconnect(this, SIGNAL(demandeLancer()),
-                        c, SLOT(demandeLancer()));
+    QObject::disconnect(this, SIGNAL(signalDemandeLancer()),
+                        c, SLOT(slotDemandeLancer()));
 
-    QObject::disconnect(this, SIGNAL(demandeArreter()),
-                        c, SLOT(demandeArreter()));
+    QObject::disconnect(this, SIGNAL(signalDemandeArreter()),
+                        c, SLOT(slotDemandeArreter()));
 
-    QObject::disconnect(this, SIGNAL(demandeChargerDiapo()),
-                        c, SLOT(demandeChargerDiapo()));
+    QObject::disconnect(this, SIGNAL(signalDemandeChargerDiapo()),
+                        c, SLOT(slotDemandeChargerDiapo()));
 
-    QObject::disconnect(this, SIGNAL(demandeEnleverDiapo()),
-                        c, SLOT(demandeEnleverDiapo()));
+    QObject::disconnect(this, SIGNAL(signalDemandeEnleverDiapo()),
+                        c, SLOT(slotDemandeEnleverDiapo()));
 
-    QObject::disconnect(this, SIGNAL(demandeDefVitesse(unsigned int)),
-                        c, SLOT(demandeDefVitesse(unsigned int)));
+    QObject::disconnect(this, SIGNAL(signalDemandeDefVitesse(unsigned int)),
+                        c, SLOT(slotDemandeDefVitesse(unsigned int)));
 }
 
 void LecteurVue::majInterface(Lecteur::modesLecteur m)
@@ -173,7 +173,7 @@ void LecteurVue::btnReculer_clic()
     qDebug() << "[Vue] Bouton reculer d'image clique";
     qDebug() << "[Vue] Envoi de la demande de recul d'image";
 
-    emit demandeReculer();
+    emit signalDemandeReculer();
 
 }
 
@@ -182,7 +182,7 @@ void LecteurVue::btnAvancer_clic()
     qDebug() << "[Vue] Bouton avancer d'image clique";
     qDebug() << "[Vue] Envoi de la demande d'avancement d'image";
 
-    emit demandeAvancer();
+    emit signalDemandeAvancer();
 }
 
 void LecteurVue::btnLancer_clic()
@@ -190,7 +190,7 @@ void LecteurVue::btnLancer_clic()
     qDebug() << "[Vue] Bouton lancer le diaporama clique";
     qDebug() << "[Vue] Envoi de la demande de lancement du diaporama ";
 
-    emit demandeLancer();
+    emit signalDemandeLancer();
 }
 
 void LecteurVue::btnArreter_clic()
@@ -198,7 +198,7 @@ void LecteurVue::btnArreter_clic()
     qDebug() << "[Vue] Bouton arreter le diaporama clique";
     qDebug() << "[Vue] Envoi de la demande d'arret du diaporama ";
 
-    emit demandeArreter();
+    emit signalDemandeArreter();
 }
 
 /*
@@ -212,7 +212,7 @@ void LecteurVue::fichierChargerDiapo_declenche()
     qDebug() << "[Vue] Action charger un diaporama declenche";
     qDebug() << "[Vue] Envoi de la demande de chargement d'un diaporama";
 
-    emit demandeChargerDiapo();
+    emit signalDemandeChargerDiapo();
 }
 
 void LecteurVue::fichierEnleverDiapo_declenche()
@@ -220,7 +220,7 @@ void LecteurVue::fichierEnleverDiapo_declenche()
     qDebug() << "[Vue] Action enlever le diaporama declenche";
     qDebug() << "[Vue] Envoi de la demande d'enlevement du diaporama";
 
-    emit demandeEnleverDiapo();
+    emit signalDemandeEnleverDiapo();
 }
 
 void LecteurVue::fichierQuitter_declenche()
@@ -235,7 +235,7 @@ void LecteurVue::paramVitUn_declenche()
     qDebug() << "[Vue] Action de definition de vitesse de defilement a 1 declenche";
     qDebug() << "[Vue] Envoi de la demande de definition de vitesse de defilement  a : 1";
 
-    emit demandeDefVitesse(1);
+    emit signalDemandeDefVitesse(1);
 }
 
 void LecteurVue::paramVitDeux_declenche()
@@ -243,7 +243,7 @@ void LecteurVue::paramVitDeux_declenche()
     qDebug() << "[Vue] Action de definition de vitesse de defilement a 2 declenche";
     qDebug() << "[Vue] Envoi de la demande de definition de vitesse de defilement a : 2";
 
-    emit demandeDefVitesse(2);
+    emit signalDemandeDefVitesse(2);
 }
 
 void LecteurVue::paramVitTrois_declenche()
@@ -251,7 +251,7 @@ void LecteurVue::paramVitTrois_declenche()
     qDebug() << "[Vue] Action de definition de vitesse de defilement a 3 declenche";
     qDebug() << "[Vue] Envoi de la demande de definition de vitesse de defilement a : 3";
 
-    emit demandeDefVitesse(3);
+    emit signalDemandeDefVitesse(3);
 }
 
 void LecteurVue::paramVitPerso_declenche()
@@ -261,7 +261,7 @@ void LecteurVue::paramVitPerso_declenche()
     qDebug() << "[Vue] Action de definition de vitesse de defilement personnalise declenche";
     qDebug() << "[Vue] Envoi de la demande de definition de vitesse de defilement a : 0 (placeholder)";
 
-    emit demandeDefVitesse(0); // Valeur placeholder en attendant l'implémentation réelle de la V3
+    emit signalDemandeDefVitesse(0); // Valeur placeholder en attendant l'implémentation réelle de la V3
 }
 
 // Onglet "aide"

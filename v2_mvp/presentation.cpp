@@ -25,28 +25,28 @@ void Presentation::setVue(LecteurVue *v)
     _laVue = v;
 }
 
-void Presentation::demandeReculer()
+void Presentation::slotDemandeReculer()
 {
     qDebug() << "[Presentation] Reception de la demande de recul d'image";
     _laVue->majInterface(_leModele->getMode());
     realiserMajTexteLabelsVue();
 }
 
-void Presentation::demandeAvancer()
+void Presentation::slotDemandeAvancer()
 {
     qDebug() << "[Presentation] Reception de la demande d'avancement d'image";
     _laVue->majInterface(_leModele->getMode());
     realiserMajTexteLabelsVue();
 }
 
-void Presentation::demandeLancer()
+void Presentation::slotDemandeLancer()
 {
     qDebug() << "[Presentation] Reception de la demande de lancement du diaporama";
     _laVue->majInterface(_leModele->getMode());
     realiserMajTexteLabelsVue();
 }
 
-void Presentation::demandeArreter()
+void Presentation::slotDemandeArreter()
 {
     qDebug() << "[Presentation] Reception de la demande d'arret du diaporama";
     _laVue->majInterface(_leModele->getMode());
@@ -59,14 +59,14 @@ void Presentation::demandeArreter()
 
 // Onglet "fichier"
 
-void Presentation::demandeChargerDiapo()
+void Presentation::slotDemandeChargerDiapo()
 {
     qDebug() << "[Presentation] Reception de la demande de chargement d'un diaporama";
     _laVue->majInterface(_leModele->getMode());
     realiserMajTexteLabelsVue();
 }
 
-void Presentation::demandeEnleverDiapo()
+void Presentation::slotDemandeEnleverDiapo()
 {
     qDebug() << "[Presentation] Reception de la demande d'enlevement du diaporama";
     _laVue->majInterface(_leModele->getMode());
@@ -75,7 +75,7 @@ void Presentation::demandeEnleverDiapo()
 
 // Onglet "paramètres"
 
-void Presentation::demandeDefVitesse(unsigned int vitesse)
+void Presentation::slotDemandeDefVitesse(unsigned int vitesse)
 {
     qDebug() << "[Presentation] Reception de la demande de definition de vitesse de defilement a : " << vitesse;
     _laVue->majInterface(_leModele->getMode());

@@ -27,21 +27,21 @@ public slots:
  * Déclaration des sous-programmes slots pour les boutons du contenu de la fenêtre
 */
 
-    void demandeReculer();
-    void demandeAvancer();
-    void demandeLancer();
-    void demandeArreter();
+    void slotDemandeReculer();
+    void slotDemandeAvancer();
+    void slotDemandeLancer();
+    void slotDemandeArreter();
 
 /*
  * Déclaration des sous-programmes slots pour les actions du menu de la fenêtre
 */
 
     // Onglet "fichier"
-    void demandeChargerDiapo();
-    void demandeEnleverDiapo();
+    void slotDemandeChargerDiapo();
+    void slotDemandeEnleverDiapo();
 
     // Onglet "paramètres"
-    void demandeDefVitesse(unsigned int vitesse);
+    void slotDemandeDefVitesse(unsigned int vitesse);
 
 
 private:

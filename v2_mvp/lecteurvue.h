@@ -73,21 +73,21 @@ signals:
  * Déclaration des sous-programmes signaux pour les boutons du contenu de la fenêtre
 */
 
-    void demandeReculer();
-    void demandeAvancer();
-    void demandeLancer();
-    void demandeArreter();
+    void signalDemandeReculer();
+    void signalDemandeAvancer();
+    void signalDemandeLancer();
+    void signalDemandeArreter();
 
     /*
  * Déclaration des sous-programmes signaux pour les actions du menu de la fenêtre
 */
 
     // Onglet "fichier"
-    void demandeChargerDiapo();
-    void demandeEnleverDiapo();
+    void signalDemandeChargerDiapo();
+    void signalDemandeEnleverDiapo();
 
     // Onglet "paramètres"
-    void demandeDefVitesse(unsigned int vitesse);
+    void signalDemandeDefVitesse(unsigned int vitesse);
 };
 
 #endif // LECTEURVUE_H
