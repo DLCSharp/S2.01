@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>lecteurvue</class>
+ <widget class="QMainWindow" name="lecteurvue">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Lecteur de diaporama</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Désactive la bordure ajoutée après les widgets dans la barre d'état */
+QStatusBar::item { border: 0px solid black }; </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="labelDiapoCourant">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Diaporama courant : &lt;intitulé du diaporama courant&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBoxImages">
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="title">
+       <string>Image &lt;image courante&gt; sur &lt;nombre d'images du diaporama&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="labelImage">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBoxActions">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>130</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>130</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="title">
+       <string>Actions</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="9" column="2">
+        <widget class="QPushButton" name="btnArreter">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Arrete le défilement automatique et passe le lecteur en mode manuel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Arrêter le diaporama</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Maximum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>30</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="3">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Maximum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>30</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Maximum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>1</width>
+           <height>15</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="9" column="1">
+        <widget class="QPushButton" name="btnLancer">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lance le défilement automatique du diaporama.&lt;/p&gt;&lt;p&gt;Affiche la première image du diaporama si le lecteur est déjà en mode automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Lancer le diaporama</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="btnReculer">
+         <property name="maximumSize">
+          <size>
+           <width>9999999</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche l'image précédente du diaporama courant. &lt;/p&gt;&lt;p&gt;Passe le lecteur en mode manuel s'il est actuellement en mode automatique.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="toolTipDuration">
+          <number>1000</number>
+         </property>
+         <property name="text">
+          <string>Reculer</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="btnAvancer">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Affiche l'image suivante du diaporama courant. &lt;/p&gt;&lt;p&gt;Passe le lecteur en mode manuel s'il est actuellement en mode automatique&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Avancer</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>500</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionFichierChargerDiapo"/>
+    <addaction name="actionFichierEnleverDiapo"/>
+    <addaction name="separator"/>
+    <addaction name="actionFichierQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuParam">
+    <property name="title">
+     <string>Paramètres</string>
+    </property>
+    <widget class="QMenu" name="menuVitesse">
+     <property name="title">
+      <string>Vitesse de défilement</string>
+     </property>
+     <addaction name="actionParamVitUn"/>
+     <addaction name="actionParamVitDeux"/>
+     <addaction name="actionParamVitTrois"/>
+     <addaction name="separator"/>
+     <addaction name="actionParamVitPerso"/>
+    </widget>
+    <addaction name="menuVitesse"/>
+   </widget>
+   <widget class="QMenu" name="menuAide">
+    <property name="title">
+     <string>Aide</string>
+    </property>
+    <addaction name="actionAideAPropos"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuParam"/>
+   <addaction name="menuAide"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <action name="actionFichierQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionFichierChargerDiapo">
+   <property name="text">
+    <string>Charger un diaporama</string>
+   </property>
+  </action>
+  <action name="actionFichierEnleverDiapo">
+   <property name="text">
+    <string>Enlever le diaporama</string>
+   </property>
+  </action>
+  <action name="actionAideAPropos">
+   <property name="text">
+    <string>A propos de</string>
+   </property>
+  </action>
+  <action name="actionParamVitUn">
+   <property name="text">
+    <string>1 seconde</string>
+   </property>
+  </action>
+  <action name="actionParamVitDeux">
+   <property name="text">
+    <string>2 secondes</string>
+   </property>
+  </action>
+  <action name="actionParamVitTrois">
+   <property name="text">
+    <string>3 secondes</string>
+   </property>
+  </action>
+  <action name="actionParamVitPerso">
+   <property name="text">
+    <string>Vitesse personnalisée</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>btnReculer</tabstop>
+  <tabstop>btnAvancer</tabstop>
+  <tabstop>btnLancer</tabstop>
+  <tabstop>btnArreter</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
