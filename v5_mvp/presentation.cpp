@@ -80,6 +80,7 @@ void Presentation::slotDemandeLancer()
             timerModeAuto->start();
 
             _leModele->setMode(Lecteur::AUTOMATIQUE);
+
             break;
 
         case Lecteur::AUTOMATIQUE:
@@ -121,7 +122,7 @@ void Presentation::slotDemandeChargerDiapo()
 
     if (_leModele->getMode() == Lecteur::VIDE)
     {
-        _leModele->changerDiaporama(0, "Diaporama de Pantxika", 1);
+        _leModele->changerDiaporama(2, "Diaporama de Thierry", 1);
         _leModele->setMode(Lecteur::MANUEL);
     }
 
